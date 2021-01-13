@@ -15,6 +15,7 @@ def generate_cosine_similarity(docs):
     vectorizer = CountVectorizer(stop_words = stopWords)
     transformer = TfidfTransformer()
     vect_docs = vectorizer.fit_transform(docs).toarray()
+    vect_docs = transformer.fit_transform(vect_docs).toarray()
     sim_df=[]
     for i,x in enumerate(vect_docs):
         for j,y in enumerate(vect_docs):
